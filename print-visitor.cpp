@@ -74,11 +74,11 @@ void PrintVisitor::apply(IfStatement* cond) {
     stream_ << "if (";
     cond->cond()->accept(*this);
     stream_ << ") ";
-    cond->trueBody()->accept(*this);
-    if (cond->falseBody()) {
+    cond->ifBody()->accept(*this);
+    if (cond->elseBody()) {
         stream_ << " else\n";
         level_++;
-        cond->falseBody()->accept(*this);
+        cond->elseBody()->accept(*this);
         level_--;
     }
 }

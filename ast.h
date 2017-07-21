@@ -80,9 +80,9 @@ private:
 public:
     Expression* cond() const { return cond_; }
 
-    Statement* trueBody() const { return trueBody_; }
+    Statement* ifBody() const { return trueBody_; }
 
-    Statement* falseBody() const { return falseBody_; }
+    Statement* elseBody() const { return falseBody_; }
 
     void accept(Visitor& visitor) override {
         visitor.apply(this);

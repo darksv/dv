@@ -101,9 +101,9 @@ void EvaluationVisitor::apply(IfStatement* cond) {
     stack_.pop();
 
     if (a) {
-        cond->trueBody()->accept(*this);
-    } else if (cond->falseBody() != nullptr) {
-        cond->falseBody()->accept(*this);
+        cond->ifBody()->accept(*this);
+    } else if (cond->elseBody() != nullptr) {
+        cond->elseBody()->accept(*this);
     }
 }
 
