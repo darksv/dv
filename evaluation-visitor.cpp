@@ -102,7 +102,7 @@ void EvaluationVisitor::apply(IfStatement* cond) {
 
     if (a) {
         cond->trueBody()->accept(*this);
-    } else {
+    } else if (cond->falseBody() != nullptr) {
         cond->falseBody()->accept(*this);
     }
 }

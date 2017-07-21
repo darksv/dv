@@ -36,7 +36,7 @@ int main() {
                                                             "print",
                                                             {
                                                                     new BinaryExpression(
-                                                                            Operator::Asterisk,
+                                                                            Operator::Minus,
                                                                             new IdentifierExpression("x"),
                                                                             new ConstantExpression(10)
                                                                     ),
@@ -48,6 +48,32 @@ int main() {
                                                                     )
                                                             }
                                                     )
+                                            ),
+                                            new IfStatement(
+                                                    new BinaryExpression(
+                                                            Operator::LessThan,
+                                                            new IdentifierExpression("x"),
+                                                            new ConstantExpression(5)
+                                                    ),
+                                                    new ExpressionStatement(
+                                                            new CallExpression(
+                                                                    "print",
+                                                                    {
+                                                                            new BinaryExpression(
+                                                                                    Operator::Minus,
+                                                                                    new IdentifierExpression("x"),
+                                                                                    new ConstantExpression(10)
+                                                                            ),
+                                                                            new IdentifierExpression("x"),
+                                                                            new BinaryExpression(
+                                                                                    Operator::Slash,
+                                                                                    new IdentifierExpression("x"),
+                                                                                    new ConstantExpression(10)
+                                                                            )
+                                                                    }
+                                                            )
+                                                    ),
+                                                    nullptr
                                             )
                                     }
                             )

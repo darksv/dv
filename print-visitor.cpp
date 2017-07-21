@@ -75,10 +75,12 @@ void PrintVisitor::apply(IfStatement* cond) {
     cond->cond()->accept(*this);
     stream_ << ") ";
     cond->trueBody()->accept(*this);
-    stream_ << " else\n";
-    level_++;
-    cond->falseBody()->accept(*this);
-    level_--;
+    if (cond->falseBody()) {
+        stream_ << " else\n";
+        level_++;
+        cond->falseBody()->accept(*this);
+        level_--;
+    }
 }
 
 void PrintVisitor::apply(ExpressionStatement* expr) {
